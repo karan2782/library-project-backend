@@ -2,6 +2,7 @@ const express = require('express')
 const { connection } = require('./config/connection')
 const { userRouter } = require('./routes/user.route')
 const { authorRouter } = require('./routes/author.route')
+const { bookRouter } = require('./routes/book.route')
 require('dotenv').config()
 
 
@@ -11,6 +12,7 @@ app.use(express.json())
 
 app.use("/api/auth", userRouter)
 app.use("/api", authorRouter)
+app.use("/api", bookRouter)
 
 app.get("/", (req, res) => {
     res.send("Hello, I am a home")
